@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+.start-page {
+  height: 100vh;
+  width: 100%;
+  position: relative; }
+  .start-page__main-menu {
+    position: relative;
+    height: 100%; }
+  .start-page__play-button {
+    display: block;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    width: 300px;
+    padding: 20px;
+    cursor: pointer; }
+
+.recipe-page {
+  height: 100vh;
+  width: 100%;
+  position: relative; }

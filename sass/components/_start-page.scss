@@ -1,0 +1,23 @@
+.start-page {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+
+  &__main-menu {
+    position: relative;
+    height: 100%;
+  }
+
+  &__play-button {
+    display: block;
+    position: relative;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin-bottom: $common-padding;
+    text-transform: uppercase;
+    width: $button-width;
+    padding: $common-padding;
+    cursor: pointer;
+  }
+}
