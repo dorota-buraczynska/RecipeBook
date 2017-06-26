@@ -4,48 +4,39 @@ let cards = [
     {
         id: 0,
         bg: 'bg',
-        img: 'img0'
+        img: 'img0',
+        isTurnOver: false
     },
     {
         id: 1,
         bg: 'bg',
-        img: 'img1'
+        img: 'img1',
+        isTurnOver: false
     },
     {
         id: 2,
         bg: 'bg',
-        img: 'img2'
+        img: 'img2',
+        isTurnOver: false
     },
     {
         id: 3,
         bg: 'bg',
-        img: 'img3'
+        img: 'img3',
+        isTurnOver: false
     }
 ];
 
 class Card extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            isTurnOver: false
-        }
-    }
 
     handleOnClick = () => {
-        if (this.state.isTurnOver) {
-            this.setState({
-                isTurnOver: false
-            })
-        } else {
-            this.setState({
-                isTurnOver: true
-            })
+        if (typeof this.props.turnOverCard === 'function') {
+            this.props.turnOverCard();
         }
     };
 
     render() {
-        if (!this.state.isTurnOver) {
+        if (this.props.isTurnOver === false) {
             return <div onClick={this.handleOnClick}>{this.props.bg}</div>
         } else {
             return <div onClick={this.handleOnClick}>{this.props.img}</div>
@@ -56,31 +47,55 @@ class Card extends React.Component {
 class Board extends React.Component {
     constructor(props) {
         super(props);
-        this.shuffle = a => {
+
+        let cardsStates = [];
+        for (let i = 0; i < cards.length; i++) {
+            cardsStates.push(false, false);
+        }
+
+        let shuffle = a => {
             for (let i = a.length; i; i--) {
                 let j = Math.floor(Math.random() * i);
                 [a[i - 1], a[j]] = [a[j], a[i - 1]];
             }
             return a;
         };
-    }
 
-    componentWillMount() {
-        this.dubbleCards = [];
+        let doubleCards = [];
         this.props.cards.forEach(card => {
-            this.dubbleCards.push(<Card key={card.id} img={card.img} bg={card.bg}/>,
-                <Card key={card.id + 'd'} img={card.img} bg={card.bg}/>);
+           doubleCards.push(card, Object.assign({}, card));
+
         });
-        this.dubbleCards = this.shuffle(this.dubbleCards)
+        doubleCards = shuffle(doubleCards);
+
+        this.state = {
+            cardsTurnOverStates: cardsStates,
+            doubleCards: doubleCards
+        };
+        console.log(this.state.doubleCards)
     }
 
-    turnOver = () => {
-
+    turnOverCard = (card, index) => {
+        let newState = this.state.doubleCards[index].isTurnOver;
+        let tempArray = this.state.doubleCards;
+        if (this.state.doubleCards[index].isTurnOver === false) {
+            tempArray[index].isTurnOver = true;
+            this.setState({
+                doubleCards: tempArray
+            })
+        }else {
+            tempArray[index].isTurnOver = false;
+            this.setState({
+                doubleCards: tempArray
+            })
+        }
     };
 
-
     render() {
-        return <div>{this.dubbleCards}</div>
+        let cards = this.state.doubleCards.map((card, index) => {
+            return <Card key={index} turnOverCard={card => this.turnOverCard(card, index)} img={card.img} bg={card.bg} isTurnOver={card.isTurnOver}/>
+        });
+        return <div>{cards}</div>
     }
 }
 
