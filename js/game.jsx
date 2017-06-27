@@ -111,7 +111,8 @@ class Board extends React.Component {
             recipeImg: '',
             recipePageDisplay: 'none',
             pointerEvents: 'auto',
-            numberOfRecipes: 0
+            numberOfRecipes: 0,
+            recipesList: []
         };
     }
 
@@ -172,10 +173,12 @@ class Board extends React.Component {
     };
 
     saveRecipe = () => {
-      this.setState({
-          numberOfRecipes: this.state.numberOfRecipes + 1
-      })
-        console.log(this.state.recipeTitle)
+        let tempArray = this.state.recipesList;
+        tempArray.push(this.state.recipeTitle);
+        this.setState({
+            numberOfRecipes: this.state.numberOfRecipes + 1,
+            recipesList: tempArray
+        });
     };
 
 
@@ -185,7 +188,7 @@ class Board extends React.Component {
         });
 
         return <div>
-            <RecipesList numberOfRecipes={this.state.numberOfRecipes}/>
+            <RecipesList numberOfRecipes={this.state.numberOfRecipes} recipesList={this.state.recipesList}/>
             <RecipePage hideRecipePage={this.hideRecipePage} saveRecipe={this.saveRecipe} title={this.state.recipeTitle} img={this.state.recipeImg} isVisible={this.state.recipePageDisplay}/>
             <div className="game__board">{cards}</div>
         </div>
