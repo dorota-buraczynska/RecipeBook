@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {StartPage} from './start-page.jsx';
-import {RecipePage} from './reciepe-page.jsx';
 import {Game} from './game.jsx';
 
 

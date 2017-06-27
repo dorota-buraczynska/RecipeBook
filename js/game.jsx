@@ -1,5 +1,7 @@
 import React from 'react';
 import {RecipePage} from './reciepe-page.jsx';
+import {RecipesList} from './recipes-list.jsx'
+
 
 let cards = [
     {
@@ -107,14 +109,15 @@ class Board extends React.Component {
             statesArray: [],
             recipeTitle: '',
             recipeImg: '',
-            display: 'none',
-            pointerEvents: 'auto'
+            recipePageDisplay: 'none',
+            pointerEvents: 'auto',
+            numberOfRecipes: 0
         };
     }
 
     hideRecipePage = () => {
         this.setState({
-            display: 'none'
+            recipePageDisplay: 'none'
         })
     };
 
@@ -149,12 +152,16 @@ class Board extends React.Component {
                     });
                 }, 2000)
             } else {
+                this.setState({
+                    pointerEvents: 'none'
+                });
                 setTimeout(() => {
                     this.state.doubleCards[indexOne].isTurnOver = true;
                     this.state.doubleCards[indexTwo].isTurnOver = true;
                     this.setState({
                         statesArray: [],
-                        display: 'block',
+                        recipePageDisplay: 'block',
+                        pointerEvents: 'auto',
                         recipeTitle: this.state.doubleCards[indexOne].title,
                         recipeImg: this.state.doubleCards[indexOne].img
                     });
@@ -164,6 +171,13 @@ class Board extends React.Component {
         }
     };
 
+    saveRecipe = () => {
+      this.setState({
+          numberOfRecipes: this.state.numberOfRecipes + 1
+      })
+        console.log(this.state.recipeTitle)
+    };
+
 
     render() {
         let cards = this.state.doubleCards.map((card, index) => {
@@ -171,7 +185,8 @@ class Board extends React.Component {
         });
 
         return <div>
-            <RecipePage hideRecipePage={this.hideRecipePage} title={this.state.recipeTitle} img={this.state.recipeImg} isVisible={this.state.display}/>
+            <RecipesList numberOfRecipes={this.state.numberOfRecipes}/>
+            <RecipePage hideRecipePage={this.hideRecipePage} saveRecipe={this.saveRecipe} title={this.state.recipeTitle} img={this.state.recipeImg} isVisible={this.state.recipePageDisplay}/>
             <div className="game__board">{cards}</div>
         </div>
 
