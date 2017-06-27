@@ -24,6 +24,30 @@ let cards = [
         bg: 'bg',
         img: 'img3',
         isTurnOver: false
+    },
+    {
+        id: 4,
+        bg: 'bg',
+        img: 'img4',
+        isTurnOver: false
+    },
+    {
+        id: 5,
+        bg: 'bg',
+        img: 'img5',
+        isTurnOver: false
+    },
+    {
+        id: 6,
+        bg: 'bg',
+        img: 'img6',
+        isTurnOver: false
+    },
+    {
+        id: 7,
+        bg: 'bg',
+        img: 'img7',
+        isTurnOver: false
     }
 ];
 
@@ -37,9 +61,9 @@ class Card extends React.Component {
 
     render() {
         if (this.props.isTurnOver === false) {
-            return <div onClick={this.handleOnClick}>{this.props.bg}</div>
+            return <div className="game__card" onClick={this.handleOnClick}>{this.props.bg}</div>
         } else {
-            return <div onClick={this.handleOnClick}>{this.props.img}</div>
+            return <div className="game__turnOverCard" onClick={this.handleOnClick}>{this.props.img}</div>
         }
     }
 }
@@ -63,31 +87,52 @@ class Board extends React.Component {
 
         let doubleCards = [];
         this.props.cards.forEach(card => {
-           doubleCards.push(card, Object.assign({}, card));
+            doubleCards.push(card, Object.assign({}, card));
 
         });
         doubleCards = shuffle(doubleCards);
 
         this.state = {
             cardsTurnOverStates: cardsStates,
-            doubleCards: doubleCards
+            doubleCards: doubleCards,
+            statesArray: []
         };
-        console.log(this.state.doubleCards)
     }
 
     turnOverCard = (card, index) => {
-        let newState = this.state.doubleCards[index].isTurnOver;
         let tempArray = this.state.doubleCards;
+        let statesArray = this.state.statesArray;
         if (this.state.doubleCards[index].isTurnOver === false) {
             tempArray[index].isTurnOver = true;
+            statesArray.push(index);
             this.setState({
-                doubleCards: tempArray
+                doubleCards: tempArray,
+                statesArray: statesArray
             })
-        }else {
-            tempArray[index].isTurnOver = false;
-            this.setState({
-                doubleCards: tempArray
-            })
+        }
+
+        if (this.state.statesArray.length === 2) {
+            let indexOne = this.state.statesArray[0];
+            let indexTwo = this.state.statesArray[1];
+            let idFirstCard = this.state.doubleCards[indexOne].id;
+            let idSecondCard = this.state.doubleCards[indexTwo].id;
+
+            if (idFirstCard !== idSecondCard) {
+                setTimeout(() => {
+                    this.state.doubleCards[indexOne].isTurnOver = false;
+                    this.state.doubleCards[indexTwo].isTurnOver = false;
+                    this.setState({
+                        statesArray: []
+                    });
+                }, 2000)
+
+            } else {
+                this.state.doubleCards[indexOne].isTurnOver = true;
+                this.state.doubleCards[indexTwo].isTurnOver = true;
+                this.setState({
+                    statesArray: []
+                });
+            }
         }
     };
 
@@ -95,13 +140,15 @@ class Board extends React.Component {
         let cards = this.state.doubleCards.map((card, index) => {
             return <Card key={index} turnOverCard={card => this.turnOverCard(card, index)} img={card.img} bg={card.bg} isTurnOver={card.isTurnOver}/>
         });
-        return <div>{cards}</div>
+        return <div className="game__board">{cards}</div>
     }
 }
 
 class Game extends React.Component {
     render() {
-        return <Board cards={cards}/>
+        return <div className="game">
+            <Board cards={cards}/>
+        </div>
     }
 }
 

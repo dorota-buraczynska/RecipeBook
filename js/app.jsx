@@ -11,13 +11,14 @@ class App extends React.Component {
 
         this.state = {
             startPageIsVisible: true,
-            recipePageIsVisible: false
+            gamePageIsVisible: false
         }
     }
 
     showGamePage = (event) => {
         this.setState({
-            startPageIsVisible: false
+            startPageIsVisible: false,
+            gamePageIsVisible: true
         })
     };
 
@@ -28,11 +29,18 @@ class App extends React.Component {
     };
 
     render() {
-        return <div>
-            <StartPage isVisible={this.state.startPageIsVisible} showGamePage={this.showGamePage}/>
-            <RecipePage isVisible={this.state.recipePageIsVisible} showRecipePage={this.showRecipePage}/>
-            <Game />
-        </div>
+        // if (this.state.startPageIsVisible) {
+        //     return <StartPage isVisible={this.state.startPageIsVisible} showGamePage={this.showGamePage}/>
+        //
+        // } else {
+            return <div>
+                <StartPage/>
+                <Game />
+                <RecipePage/>
+            </div>
+        //
+        // }
+
     }
 }
 

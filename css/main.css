@@ -26,3 +26,31 @@
   height: 100vh;
   width: 100%;
   position: relative; }
+
+.game {
+  height: 100vh;
+  width: 100%;
+  position: relative; }
+  .game__board {
+    position: relative;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin: 0 auto;
+    width: 920px; }
+  .game__card {
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    background-color: red; }
+  .game__turnOverCard {
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    background-color: white; }
