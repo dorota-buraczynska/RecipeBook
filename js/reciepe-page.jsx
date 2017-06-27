@@ -1,19 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Game} from "./game.jsx";
 
 class RecipeHeader extends React.Component {
     render() {
         return <div>
-            <img />
+            <img src={this.props.img}/>
             <h1>{this.props.title}</h1>
         </div>
     }
 }
 
 class RecipeFooter extends React.Component {
-    handleOnClickBack = (event) =>{
-        if (typeof this.props.showRecipePage === 'function') {
-            this.props.showRecipePage(event.target);
+    handleOnClickBack = (event) => {
+        if (typeof this.props.showGamePage === 'function') {
+            this.props.showGamePage(event.target);
         }
     };
 
@@ -36,18 +37,16 @@ class RecipeText extends React.Component {
 class Recipe extends React.Component {
     render() {
         return <div className="recipe-page__recipe">
-            <RecipeHeader title="Pasta with chicken" />
+            <RecipeHeader title={this.props.title} img={this.props.img}/>
             <RecipeText />
-            <RecipeFooter showRecipePage={this.props.showRecipePage}/>
+            <RecipeFooter showGamePage={this.props.showGamePage}/>
         </div>
     }
 }
 
 class RecipePage extends React.Component {
     render() {
-        return <div className="recipe-page">
-            <Recipe  showRecipePage={this.props.showRecipePage} />
-        </div>
+        return <div style={{display: this.props.isVisible}}><Recipe showGamePage={this.props.hideRecipePage} title={this.props.title} img={this.props.img}/></div>
     }
 }
 
