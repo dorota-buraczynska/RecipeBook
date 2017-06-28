@@ -26,6 +26,7 @@
     font: {
       size: 33px;
       family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      weight: bold;
     };
   }
 
@@ -46,9 +47,8 @@
 
   &__recipe {
     cursor: pointer;
-    width: 300px;
     margin: 0 auto;
-    padding: $common-padding/2 0;
+    padding: $common-padding/2;
 
     &:hover {
       background-color: $hover-bg-color;

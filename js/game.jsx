@@ -53,14 +53,14 @@ class Board extends React.Component {
             statesArray: [],
             recipeTitle: '',
             recipeImg: '',
-            recipeId: '',
+            recipeIndex: '',
             recipeIngredients: '',
             recipeRealization: '',
-            recipeCategory: '',
             recipePageDisplay: 'none',
             pointerEvents: 'auto',
             numberOfRecipes: 0,
-            recipesList: []
+            recipesList: [],
+            recipeIsDisplay: false
         };
     }
 
@@ -113,10 +113,9 @@ class Board extends React.Component {
                         pointerEvents: 'auto',
                         recipeTitle: this.state.doubleCards[indexOne].title,
                         recipeImg: this.state.doubleCards[indexOne].img,
-                        recipeId: this.state.doubleCards[indexOne].id,
+                        recipeIndex: indexOne,
                         recipeIngredients: this.state.doubleCards[indexOne].ingredients,
                         recipeRealization: this.state.doubleCards[indexOne].realization,
-                        recipeCategory: this.state.doubleCards[indexOne].category
                     });
                 }, 1500)
             }
@@ -125,12 +124,25 @@ class Board extends React.Component {
 
     saveRecipe = () => {
         let tempArray = this.state.recipesList;
-        tempArray.push({title: this.state.recipeTitle, id: this.state.recipeId});
+        tempArray.push({title: this.state.recipeTitle, index: this.state.recipeIndex});
         this.setState({
             numberOfRecipes: this.state.numberOfRecipes + 1,
             recipesList: tempArray,
             recipePageDisplay: 'none'
         });
+    };
+
+    showRecipe = (event) => {
+        let recipeIndex = event.getAttribute('data-index');
+        this.setState({
+            recipePageDisplay: 'block',
+            recipeIsDisplay: true,
+            recipeTitle: this.state.doubleCards[recipeIndex].title,
+            recipeImg: this.state.doubleCards[recipeIndex].img,
+            recipeIngredients: this.state.doubleCards[recipeIndex].ingredients,
+            recipeRealization: this.state.doubleCards[recipeIndex].realization
+        })
+
     };
 
 
@@ -140,8 +152,8 @@ class Board extends React.Component {
         });
 
         return <div>
-            <RecipesList numberOfRecipes={this.state.numberOfRecipes} recipesList={this.state.recipesList} recipeCategory={this.state.recipeCategory}/>
-            <RecipePage hideRecipePage={this.hideRecipePage} saveRecipe={this.saveRecipe} title={this.state.recipeTitle} ingredients={this.state.recipeIngredients} realization={this.state.recipeRealization} img={this.state.recipeImg} isVisible={this.state.recipePageDisplay}/>
+            <RecipesList showRecipe={this.showRecipe} numberOfRecipes={this.state.numberOfRecipes} recipesList={this.state.recipesList} recipeCategory={this.state.recipeCategory}/>
+            <RecipePage hideRecipePage={this.hideRecipePage} saveRecipe={this.saveRecipe} recipeIsDisplay={this.state.recipeIsDisplay} title={this.state.recipeTitle} ingredients={this.state.recipeIngredients} realization={this.state.recipeRealization} img={this.state.recipeImg} isVisible={this.state.recipePageDisplay}/>
             <div className="game__board">{cards}</div>
         </div>
     }

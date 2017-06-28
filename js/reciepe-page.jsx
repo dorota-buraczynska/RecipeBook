@@ -23,10 +23,16 @@ class RecipeFooter extends React.Component {
     };
 
     render() {
-        return <div>
-            <button className="recipe-page__button" onClick={this.saveRecipe}>save recipe</button>
-            <button className="recipe-page__button" onClick={this.handleOnClickBack}>back to game</button>
-        </div>
+        if (this.props.recipeIsDisplay) {
+            return <div>
+                <button className="recipe-page__button" onClick={this.handleOnClickBack}>back to game</button>
+            </div>
+        } else {
+            return <div>
+                <button className="recipe-page__button" onClick={this.saveRecipe}>save recipe</button>
+                <button className="recipe-page__button" onClick={this.handleOnClickBack}>back to game</button>
+            </div>
+        }
     }
 }
 
@@ -47,14 +53,14 @@ class Recipe extends React.Component {
         return <div className="recipe-page__recipe">
             <RecipeHeader title={this.props.title} img={this.props.img}/>
             <RecipeText ingredients={this.props.ingredients} realization={this.props.realization}/>
-            <RecipeFooter showGamePage={this.props.showGamePage} saveRecipe={this.props.saveRecipe}/>
+            <RecipeFooter showGamePage={this.props.showGamePage} saveRecipe={this.props.saveRecipe} recipeIsDisplay={this.props.recipeIsDisplay}/>
         </div>
     }
 }
 
 class RecipePage extends React.Component {
     render() {
-        return <div className="recipe-page" style={{display: this.props.isVisible}}><Recipe showGamePage={this.props.hideRecipePage} saveRecipe={this.props.saveRecipe} title={this.props.title} img={this.props.img} realization={this.props.realization} ingredients={this.props.ingredients}/></div>
+        return <div className="recipe-page" style={{display: this.props.isVisible}}><Recipe showGamePage={this.props.hideRecipePage} saveRecipe={this.props.saveRecipe} title={this.props.title} img={this.props.img} realization={this.props.realization} ingredients={this.props.ingredients} recipeIsDisplay={this.props.recipeIsDisplay}/></div>
     }
 }
 

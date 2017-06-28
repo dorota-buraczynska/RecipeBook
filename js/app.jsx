@@ -28,16 +28,16 @@ class App extends React.Component {
     };
 
     render() {
-        // if (this.state.startPageIsVisible) {
-        //     return <StartPage isVisible={this.state.startPageIsVisible} showGamePage={this.showGamePage}/>
-        //
-        // } else {
+        if (this.state.startPageIsVisible) {
+            return <StartPage isVisible={this.state.startPageIsVisible} showGamePage={this.showGamePage}/>
+
+        } else {
             return <div>
-                <StartPage/>
+                {/*<StartPage/>*/}
                 <Game />
             </div>
-        //
-        // }
+
+        }
 
     }
 }
