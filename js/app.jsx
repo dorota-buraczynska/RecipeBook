@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {StartPage} from './start-page.jsx';
 import {Game} from './game.jsx';
+import cards from './cards';
+import cardsBreakfast from './cards-breakfast'
 
 
 class App extends React.Component {
@@ -10,33 +12,39 @@ class App extends React.Component {
 
         this.state = {
             startPageIsVisible: true,
-            gamePageIsVisible: false
+            gameDinnerPageIsVisible: false,
+            gameBreakfastPageIsVisible: false
+
         }
     }
 
-    showGamePage = (event) => {
+    showDinnerGamePage = (event) => {
         this.setState({
             startPageIsVisible: false,
-            gamePageIsVisible: true
+            gameDinnerPageIsVisible: true
         })
     };
 
-    showRecipePage = (event) => {
+    showBreakfastGamePage = (event) => {
         this.setState({
-            startPageIsVisible: true
+            startPageIsVisible: false,
+            gameBreakfastPageIsVisible: true
         })
     };
 
     render() {
         if (this.state.startPageIsVisible) {
-            return <StartPage isVisible={this.state.startPageIsVisible} showGamePage={this.showGamePage}/>
+            return <StartPage isVisible={this.state.startPageIsVisible} showDinnerGamePage={this.showDinnerGamePage} showBreakfastGamePage={this.showBreakfastGamePage}/>
 
-        } else {
+        } else if (this.state.gameDinnerPageIsVisible) {
             return <div>
-                {/*<StartPage/>*/}
-                <Game />
+                <Game cards={cards} />
             </div>
 
+        } else if (this.state.gameBreakfastPageIsVisible) {
+            return <div>
+                <Game cards={cardsBreakfast} />
+            </div>
         }
 
     }

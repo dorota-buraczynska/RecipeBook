@@ -67,8 +67,8 @@ class RecipesList extends React.Component {
 
     render() {
         return <div className="recipes-list">
-            <div className="recipes-list__wrapper">
-                <h1 className="recipes-list__title" onClick={this.showContent}>recipes list</h1>
+            <div className="recipes-list__wrapper" onClick={this.showContent}>
+                <h1 className="recipes-list__title">recipes list</h1>
                 <Counter numberOfRecipes={this.props.numberOfRecipes}/>
             </div>
             <Content display={this.state.contentDisplay} recipesList={this.props.recipesList} recipeCategory={this.props.recipeCategory} showRecipe={this.props.showRecipe}/>

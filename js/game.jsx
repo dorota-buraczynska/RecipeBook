@@ -1,8 +1,6 @@
 import React from 'react';
 import {RecipePage} from './reciepe-page.jsx';
 import {RecipesList} from './recipes-list.jsx';
-import cards from './cards';
-
 
 class Card extends React.Component {
 
@@ -28,7 +26,7 @@ class Board extends React.Component {
         super(props);
 
         let cardsStates = [];
-        for (let i = 0; i < cards.length; i++) {
+        for (let i = 0; i < this.props.cards.length; i++) {
             cardsStates.push(false, false);
         }
 
@@ -142,7 +140,6 @@ class Board extends React.Component {
             recipeIngredients: this.state.doubleCards[recipeIndex].ingredients,
             recipeRealization: this.state.doubleCards[recipeIndex].realization
         })
-
     };
 
 
@@ -162,7 +159,7 @@ class Board extends React.Component {
 class Game extends React.Component {
     render() {
         return <div className="game">
-            <Board cards={cards}/>
+            <Board cards={this.props.cards}/>
         </div>
     }
 }
