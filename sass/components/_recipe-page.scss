@@ -8,10 +8,65 @@
   z-index: 1;
   text-align: center;
 
+  &__header {
+    text-align: left;
+    font: {
+      family: $secondary-font;
+    }
+  }
+
+  &__header-title {
+    text-transform: capitalize;
+    margin: $common-padding 0;
+  }
+
+  &__title {
+    text-align: left;
+    text-transform: uppercase;
+    margin: $common-padding/2 0;
+    font: {
+      size: 22px;
+    }
+  }
+
+  &__ingredients {
+    list-style-type: none;
+    text-align: left;
+    margin: $common-padding/2 0;
+    line-height: $line-height;
+  }
+
+  &__realization{
+    margin: $common-padding 0;
+  }
+
   &__recipe {
+    width: 700px;
+    margin: 0 auto;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    padding: $common-padding*2;
+    background-color: #f6e0e0;
+    border-radius: $card-border-radius;
+  }
+
+  &__button {
+    margin-top: $common-padding;
+    margin-right: $common-padding;
+    padding: $common-padding/2 $common-padding;
+    text-transform: capitalize;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font: {
+      weight: bold;
+    }
+
+    &:hover {
+      background-color: #b4e9ad;
+    }
   }
 
   &__header-img {

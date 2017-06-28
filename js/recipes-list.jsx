@@ -4,8 +4,9 @@ class Recipes extends React.Component {
     render() {
         return <ul>
             {this.props.recipesList.map((recipe) => {
-                return <li>{recipe.title}</li>
+                return <li key={recipe.title}>{recipe.title}</li>
             })}
+            <li>burger big</li>
         </ul>
     }
 }
@@ -20,7 +21,7 @@ class Category extends React.Component {
 
 class Content extends React.Component {
     render() {
-        return <div className="recipes-list__content" style={{display: this.props.display}}>
+        return <div className="recipes-list__content" style={{display: 'block'}}>
             <Category />
             <Recipes recipesList={this.props.recipesList}/>
         </div>

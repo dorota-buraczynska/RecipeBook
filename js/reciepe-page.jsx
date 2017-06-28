@@ -24,16 +24,20 @@ class RecipeFooter extends React.Component {
 
     render() {
         return <div>
-            <button onClick={this.saveRecipe}>save recipe</button>
-            <button onClick={this.handleOnClickBack}>back to game</button>
+            <button className="recipe-page__button" onClick={this.saveRecipe}>save recipe</button>
+            <button className="recipe-page__button" onClick={this.handleOnClickBack}>back to game</button>
         </div>
     }
 }
 
 class RecipeText extends React.Component {
     render() {
-        return <div>
-            <p></p>
+        return <div className="recipe-page__text">
+            <p className="recipe-page__title">ingredients</p>
+            <ul className="recipe-page__ingredients">
+                {this.props.ingredients}
+            </ul>
+            <p className="recipe-page__realization">{this.props.realization}</p>
         </div>
     }
 }
@@ -42,7 +46,7 @@ class Recipe extends React.Component {
     render() {
         return <div className="recipe-page__recipe">
             <RecipeHeader title={this.props.title} img={this.props.img}/>
-            <RecipeText />
+            <RecipeText ingredients={this.props.ingredients} realization={this.props.realization}/>
             <RecipeFooter showGamePage={this.props.showGamePage} saveRecipe={this.props.saveRecipe}/>
         </div>
     }
@@ -50,7 +54,7 @@ class Recipe extends React.Component {
 
 class RecipePage extends React.Component {
     render() {
-        return <div className="recipe-page" style={{display: this.props.isVisible}}><Recipe showGamePage={this.props.hideRecipePage} saveRecipe={this.props.saveRecipe} title={this.props.title} img={this.props.img}/></div>
+        return <div className="recipe-page" style={{display: this.props.isVisible}}><Recipe showGamePage={this.props.hideRecipePage} saveRecipe={this.props.saveRecipe} title={this.props.title} img={this.props.img} realization={this.props.realization} ingredients={this.props.ingredients}/></div>
     }
 }
 

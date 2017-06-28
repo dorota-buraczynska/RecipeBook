@@ -16,7 +16,7 @@ class Card extends React.Component {
         if (this.props.isTurnOver === false) {
             return <div style={{pointerEvents: this.props.pointerEvents}} className="game__card" onClick={this.handleOnClick}/>
         } else {
-            return <div className="game__turn-over-card-wrapper">
+            return <div style={{backgroundImage: this.props.img}} className="game__turn-over-card-wrapper">
                 <img src={this.props.img} style={{pointerEvents: this.props.pointerEvents}} className="game__turn-over-card" onClick={this.handleOnClick}/>
             </div>
         }
@@ -54,6 +54,8 @@ class Board extends React.Component {
             recipeTitle: '',
             recipeImg: '',
             recipeId: '',
+            recipeIngredients: '',
+            recipeRealization: '',
             recipePageDisplay: 'none',
             pointerEvents: 'auto',
             numberOfRecipes: 0,
@@ -110,10 +112,11 @@ class Board extends React.Component {
                         pointerEvents: 'auto',
                         recipeTitle: this.state.doubleCards[indexOne].title,
                         recipeImg: this.state.doubleCards[indexOne].img,
-                        recipeId: this.state.doubleCards[indexOne].id
+                        recipeId: this.state.doubleCards[indexOne].id,
+                        recipeIngredients: this.state.doubleCards[indexOne].ingredients,
+                        recipeRealization: this.state.doubleCards[indexOne].realization
                     });
-                }, 3000)
-
+                }, 1500)
             }
         }
     };
@@ -123,7 +126,8 @@ class Board extends React.Component {
         tempArray.push({title: this.state.recipeTitle, id: this.state.recipeId});
         this.setState({
             numberOfRecipes: this.state.numberOfRecipes + 1,
-            recipesList: tempArray
+            recipesList: tempArray,
+            recipePageDisplay: 'none'
         });
     };
 
@@ -135,7 +139,7 @@ class Board extends React.Component {
 
         return <div>
             <RecipesList numberOfRecipes={this.state.numberOfRecipes} recipesList={this.state.recipesList}/>
-            <RecipePage hideRecipePage={this.hideRecipePage} saveRecipe={this.saveRecipe} title={this.state.recipeTitle} img={this.state.recipeImg} isVisible={this.state.recipePageDisplay}/>
+            <RecipePage hideRecipePage={this.hideRecipePage} saveRecipe={this.saveRecipe} title={this.state.recipeTitle} ingredients={this.state.recipeIngredients} realization={this.state.recipeRealization} img={this.state.recipeImg} isVisible={this.state.recipePageDisplay}/>
             <div className="game__board">{cards}</div>
         </div>
     }
