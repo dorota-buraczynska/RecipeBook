@@ -10,21 +10,31 @@
   position: relative;
   background-image: url("../images/bg.jpeg");
   background-size: cover;
-  background-position: center; }
+  background-position: center;
+  opacity: 0.6; }
   .start-page__main-menu {
-    position: relative;
-    height: 100%; }
+    position: absolute;
+    height: 100%;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%); }
   .start-page__play-button {
     display: block;
     position: relative;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     text-transform: uppercase;
     width: 300px;
     padding: 20px;
-    cursor: pointer; }
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    font-size: 20px;
+    font-weight: bold; }
+    .start-page__play-button:last-child {
+      margin-bottom: 0; }
+    .start-page__play-button:hover {
+      background-color: #e0f3de; }
 
 .recipe-page {
   height: 100%;
@@ -73,7 +83,7 @@
     outline: none;
     font-weight: bold; }
     .recipe-page__button:hover {
-      background-color: #b4e9ad; }
+      background-color: #e0f3de; }
   .recipe-page__header-img {
     width: 400px; }
 
@@ -83,12 +93,12 @@
   background-image: url("../images/dinner.jpeg");
   background-size: cover;
   overflow: hidden;
-  padding-bottom: 60px; }
+  padding: 60px 0; }
   .game__board {
     position: relative;
     top: 50%;
     left: 0;
-    margin: 0 auto;
+    margin: 60px auto 0 auto;
     max-width: 1300px;
     text-align: center; }
   .game__card {
@@ -99,7 +109,8 @@
     margin: 10px;
     text-align: center;
     background-color: rgba(251, 241, 229, 0.81);
-    border-radius: 5%; }
+    border-radius: 5%;
+    cursor: pointer; }
     .game__card:last-child {
       margin-right: 0; }
   .game__turn-over-card-wrapper {
@@ -119,14 +130,39 @@
 
 .recipes-list {
   text-align: center;
+  width: 500px;
   margin: 0 auto;
-  width: 1000px;
-  padding: 40px 0; }
+  position: relative; }
+  .recipes-list__wrapper {
+    width: 100%;
+    padding: 20px 0;
+    background-color: white;
+    cursor: pointer; }
+    .recipes-list__wrapper:hover {
+      background-color: #e0f3de; }
   .recipes-list__title {
     display: inline-block;
     text-transform: uppercase;
-    margin-right: 20px;
-    cursor: pointer; }
+    margin-right: 20px; }
   .recipes-list__counter {
     display: inline-block;
-    font-size: 30px; }
+    font-size: 33px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  .recipes-list__content {
+    position: absolute;
+    left: 0;
+    list-style-type: none;
+    z-index: 1;
+    text-transform: uppercase;
+    width: 100%;
+    border-top: 5px solid black;
+    padding: 20px 0;
+    background-color: white;
+    font-size: 25px; }
+  .recipes-list__recipe {
+    cursor: pointer;
+    width: 300px;
+    margin: 0 auto;
+    padding: 10px 0; }
+    .recipes-list__recipe:hover {
+      background-color: #e0f3de; }

@@ -4,13 +4,13 @@
   background-image: url("../images/dinner.jpeg");
   background-size: cover;
   overflow: hidden;
-  padding-bottom: $common-padding*3;
+  padding: $common-padding*3 0;
 
   &__board {
     position: relative;
     top: 50%;
     left: 0;
-    margin: 0 auto;
+    margin: $common-padding*3 auto 0 auto;
     max-width: 1300px;
     text-align: center;
   }
@@ -24,6 +24,7 @@
     text-align: center;
     background-color: rgba(251, 241, 229, 0.81);;
     border-radius: $card-border-radius;
+    cursor: pointer;
 
     &:last-child {
       margin-right: 0;

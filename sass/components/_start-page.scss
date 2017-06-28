@@ -5,22 +5,40 @@
   background-image: url("../images/bg.jpeg");
   background-size: cover;
   background-position: center;
+  opacity: 0.6;
 
   &__main-menu {
-    position: relative;
+    position: absolute;
     height: 100%;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &__play-button {
     display: block;
     position: relative;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-bottom: $common-padding;
+
+    margin-bottom: $common-padding*2;
     text-transform: uppercase;
     width: $button-width;
     padding: $common-padding;
+    background-color: white;
+    border: none;
     cursor: pointer;
+    outline: none;
+    font: {
+      size: 20px;
+      weight: bold;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      background-color: $hover-bg-color;
+    }
   }
 }
+

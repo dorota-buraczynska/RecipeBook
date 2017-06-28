@@ -1,19 +1,57 @@
 .recipes-list {
   text-align: center;
+  width: 500px;
   margin: 0 auto;
-  width: 1000px;
-  padding: $common-padding*2 0;
+  position: relative;
 
+  &__wrapper {
+    width: 100%;
+    padding: $common-padding 0;
+    background-color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-bg-color;
+    }
+  }
 
   &__title {
     display: inline-block;
     text-transform: uppercase;
     margin-right: $common-padding;
-    cursor: pointer;
   }
 
   &__counter {
     display: inline-block;
-    font-size: 30px;
+    font: {
+      size: 33px;
+      family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    };
+  }
+
+  &__content {
+    position: absolute;
+    left: 0;
+    list-style-type: none;
+    z-index: 1;
+    text-transform: uppercase;
+    width: 100%;
+    border-top: 5px solid black;
+    padding: $common-padding 0;
+    background-color: white;
+    font: {
+      size: 25px;
+    }
+  }
+
+  &__recipe {
+    cursor: pointer;
+    width: 300px;
+    margin: 0 auto;
+    padding: $common-padding/2 0;
+
+    &:hover {
+      background-color: $hover-bg-color;
+    }
   }
 }

@@ -2,27 +2,30 @@ import React from 'react';
 
 class Recipes extends React.Component {
     render() {
-        return <ul>
-            {this.props.recipesList.map((recipe) => {
-                return <li key={recipe.title}>{recipe.title}</li>
-            })}
-            <li>burger big</li>
-        </ul>
+        if (this.props.recipesList.length === 0) {
+            return <p className="recipes-list__content">you don't have any recipes</p>
+        } else {
+            return <ul className="recipes-list__content">
+                {this.props.recipesList.map((recipe) => {
+                    return <li className="recipes-list__recipe" key={recipe.title}>{recipe.title}</li>
+                })}
+            </ul>
+        }
     }
 }
-
-class Category extends React.Component {
-    render() {
-        return <div>
-            <h2>Category</h2>
-        </div>
-    }
-}
+//
+// class Category extends React.Component {
+//     render() {
+//         return <div>
+//             <h2>{this.props.recipeCategory}</h2>
+//         </div>
+//     }
+// }
 
 class Content extends React.Component {
     render() {
-        return <div className="recipes-list__content" style={{display: 'block'}}>
-            <Category />
+        return <div style={{display: this.props.display}}>
+            {/*<Category recipesList={this.props.recipesList} recipeCategoty={this.props.recipeCategory}/>*/}
             <Recipes recipesList={this.props.recipesList}/>
         </div>
     }
@@ -58,9 +61,11 @@ class RecipesList extends React.Component {
 
     render() {
         return <div className="recipes-list">
-            <h1 className="recipes-list__title" onClick={this.showContent}>recipes list</h1>
-            <Counter numberOfRecipes={this.props.numberOfRecipes}/>
-            <Content display={this.state.contentDisplay} recipesList={this.props.recipesList}/>
+            <div className="recipes-list__wrapper">
+                <h1 className="recipes-list__title" onClick={this.showContent}>recipes list</h1>
+                <Counter numberOfRecipes={this.props.numberOfRecipes}/>
+            </div>
+            <Content display={this.state.contentDisplay} recipesList={this.props.recipesList} recipeCategory={this.props.recipeCategory}/>
         </div>
     }
 }

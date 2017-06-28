@@ -25,7 +25,8 @@ class MainMenu extends React.Component {
 
 class StartPage extends React.Component {
     render() {
-        return <div className="start-page">
+        return <div>
+            <div className="start-page"></div>
             <MainMenu showGamePage={this.props.showGamePage}/>
         </div>
     }
