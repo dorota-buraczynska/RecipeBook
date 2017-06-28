@@ -89,10 +89,15 @@
 .game {
   width: 100%;
   position: relative;
-  background-image: url("../images/dinner.jpeg");
   background-size: cover;
   overflow: hidden;
   padding: 60px 0; }
+  .game--dinner {
+    background-image: url("../images/dinner.jpeg"); }
+  .game--breakfast {
+    background-image: url("../images/breakfast.jpeg"); }
+  .game--dessert {
+    background-image: url("../images/desserts.jpeg"); }
   .game__board {
     position: relative;
     top: 50%;

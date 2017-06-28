@@ -9,6 +9,9 @@ class PlayButton extends React.Component {
         if (typeof this.props.showBreakfastGamePage === 'function') {
             this.props.showBreakfastGamePage(event.target);
         }
+        if (typeof this.props.showDessertGamePage === 'function') {
+            this.props.showDessertGamePage(event.target);
+        }
     };
 
     render() {
@@ -21,7 +24,7 @@ class MainMenu extends React.Component {
         return <div className="start-page__main-menu">
             <PlayButton category="breakfast" showBreakfastGamePage={this.props.showBreakfastGamePage}/>
             <PlayButton category="dinner" showDinnerGamePage={this.props.showDinnerGamePage}/>
-            <PlayButton category="dessert" showGamePage={this.props.showGamePage}/>
+            <PlayButton category="dessert" showDessertGamePage={this.props.showDessertGamePage}/>
         </div>
     }
 }
@@ -30,7 +33,7 @@ class StartPage extends React.Component {
     render() {
         return <div>
             <div className="start-page"></div>
-            <MainMenu showDinnerGamePage={this.props.showDinnerGamePage} showBreakfastGamePage={this.props.showBreakfastGamePage}/>
+            <MainMenu showDinnerGamePage={this.props.showDinnerGamePage} showBreakfastGamePage={this.props.showBreakfastGamePage} showDessertGamePage={this.props.showDessertGamePage}/>
         </div>
     }
 }

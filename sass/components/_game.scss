@@ -1,10 +1,21 @@
 .game {
   width: 100%;
   position: relative;
-  background-image: url("../images/dinner.jpeg");
   background-size: cover;
   overflow: hidden;
   padding: $common-padding*3 0;
+
+  &--dinner {
+    background-image: url("../images/dinner.jpeg");
+  }
+
+  &--breakfast {
+    background-image: url("../images/breakfast.jpeg");
+  }
+
+  &--dessert {
+    background-image: url("../images/desserts.jpeg");
+  }
 
   &__board {
     position: relative;

@@ -158,7 +158,7 @@ class Board extends React.Component {
 
 class Game extends React.Component {
     render() {
-        return <div className="game">
+        return <div>
             <Board cards={this.props.cards}/>
         </div>
     }
