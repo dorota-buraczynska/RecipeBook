@@ -4,7 +4,7 @@ class Recipes extends React.Component {
     render() {
         return <ul>
             {this.props.recipesList.map((recipe) => {
-                return <li>{recipe}</li>
+                return <li>{recipe.title}</li>
             })}
         </ul>
     }
@@ -20,7 +20,7 @@ class Category extends React.Component {
 
 class Content extends React.Component {
     render() {
-        return <div style={{display: this.props.display}}>
+        return <div className="recipes-list__content" style={{display: this.props.display}}>
             <Category />
             <Recipes recipesList={this.props.recipesList}/>
         </div>
@@ -29,7 +29,7 @@ class Content extends React.Component {
 
 class Counter extends React.Component {
     render() {
-        return <div>{this.props.numberOfRecipes}</div>
+        return <div className="recipes-list__counter">{this.props.numberOfRecipes}</div>
     }
 }
 
@@ -56,10 +56,10 @@ class RecipesList extends React.Component {
     };
 
     render() {
-        return <div>
-            <h1 onClick={this.showContent}>List of your recipes</h1>
-            <Content display={this.state.contentDisplay} recipesList={this.props.recipesList}/>
+        return <div className="recipes-list">
+            <h1 className="recipes-list__title" onClick={this.showContent}>recipes list</h1>
             <Counter numberOfRecipes={this.props.numberOfRecipes}/>
+            <Content display={this.state.contentDisplay} recipesList={this.props.recipesList}/>
         </div>
     }
 }

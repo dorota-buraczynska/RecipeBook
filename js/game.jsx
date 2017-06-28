@@ -1,66 +1,8 @@
 import React from 'react';
 import {RecipePage} from './reciepe-page.jsx';
-import {RecipesList} from './recipes-list.jsx'
+import {RecipesList} from './recipes-list.jsx';
+import cards from './cards';
 
-
-let cards = [
-    {
-        id: 0,
-        bg: 'bg',
-        img: 'img0',
-        title: 'obrazek 1',
-        isTurnOver: false
-    },
-    {
-        id: 1,
-        bg: 'bg',
-        img: 'img1',
-        title: 'obrazek 2',
-        isTurnOver: false
-    },
-    {
-        id: 2,
-        bg: 'bg',
-        img: 'img2',
-        title: 'obrazek 3',
-        isTurnOver: false
-    },
-    {
-        id: 3,
-        bg: 'bg',
-        img: 'img3',
-        title: 'obrazek 4',
-        isTurnOver: false
-    },
-    {
-        id: 4,
-        bg: 'bg',
-        img: 'img4',
-        title: 'obrazek 5',
-        isTurnOver: false
-    },
-    {
-        id: 5,
-        bg: 'bg',
-        img: 'img5',
-        title: 'obrazek 6',
-        isTurnOver: false
-    },
-    {
-        id: 6,
-        bg: 'bg',
-        img: 'img6',
-        title: 'obrazek 7',
-        isTurnOver: false
-    },
-    {
-        id: 7,
-        bg: 'bg',
-        img: 'img7',
-        title: 'obrazek 8',
-        isTurnOver: false
-    }
-];
 
 class Card extends React.Component {
 
@@ -72,9 +14,11 @@ class Card extends React.Component {
 
     render() {
         if (this.props.isTurnOver === false) {
-            return <div style={{pointerEvents: this.props.pointerEvents}} className="game__card" onClick={this.handleOnClick}>{this.props.bg}</div>
+            return <div style={{pointerEvents: this.props.pointerEvents}} className="game__card" onClick={this.handleOnClick}/>
         } else {
-            return <div style={{pointerEvents: this.props.pointerEvents}} className="game__turnOverCard" onClick={this.handleOnClick}>{this.props.img}</div>
+            return <div className="game__turn-over-card-wrapper">
+                <img src={this.props.img} style={{pointerEvents: this.props.pointerEvents}} className="game__turn-over-card" onClick={this.handleOnClick}/>
+            </div>
         }
     }
 }
@@ -109,6 +53,7 @@ class Board extends React.Component {
             statesArray: [],
             recipeTitle: '',
             recipeImg: '',
+            recipeId: '',
             recipePageDisplay: 'none',
             pointerEvents: 'auto',
             numberOfRecipes: 0,
@@ -164,7 +109,8 @@ class Board extends React.Component {
                         recipePageDisplay: 'block',
                         pointerEvents: 'auto',
                         recipeTitle: this.state.doubleCards[indexOne].title,
-                        recipeImg: this.state.doubleCards[indexOne].img
+                        recipeImg: this.state.doubleCards[indexOne].img,
+                        recipeId: this.state.doubleCards[indexOne].id
                     });
                 }, 3000)
 
@@ -174,7 +120,7 @@ class Board extends React.Component {
 
     saveRecipe = () => {
         let tempArray = this.state.recipesList;
-        tempArray.push(this.state.recipeTitle);
+        tempArray.push({title: this.state.recipeTitle, id: this.state.recipeId});
         this.setState({
             numberOfRecipes: this.state.numberOfRecipes + 1,
             recipesList: tempArray
@@ -192,8 +138,6 @@ class Board extends React.Component {
             <RecipePage hideRecipePage={this.hideRecipePage} saveRecipe={this.saveRecipe} title={this.state.recipeTitle} img={this.state.recipeImg} isVisible={this.state.recipePageDisplay}/>
             <div className="game__board">{cards}</div>
         </div>
-
-
     }
 }
 

@@ -2,9 +2,9 @@ import React from 'react';
 
 class RecipeHeader extends React.Component {
     render() {
-        return <div>
-            <img src={this.props.img}/>
-            <h1>{this.props.title}</h1>
+        return <div className="recipe-page__header">
+            <img className="recipe-page__header-img" src={this.props.img}/>
+            <h1 className="recipe-page__header-title">{this.props.title}</h1>
         </div>
     }
 }
@@ -50,7 +50,7 @@ class Recipe extends React.Component {
 
 class RecipePage extends React.Component {
     render() {
-        return <div style={{display: this.props.isVisible}}><Recipe showGamePage={this.props.hideRecipePage} saveRecipe={this.props.saveRecipe} title={this.props.title} img={this.props.img}/></div>
+        return <div className="recipe-page" style={{display: this.props.isVisible}}><Recipe showGamePage={this.props.hideRecipePage} saveRecipe={this.props.saveRecipe} title={this.props.title} img={this.props.img}/></div>
     }
 }
 

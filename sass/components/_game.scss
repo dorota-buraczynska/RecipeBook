@@ -1,35 +1,53 @@
 .game {
-  height: 100vh;
   width: 100%;
   position: relative;
+  background-image: url("../images/dinner.jpeg");
+  background-size: cover;
 
   &__board {
     position: relative;
     top: 50%;
     left: 0;
-    //transform: translateY(-50%);
     margin: 0 auto;
-    width: 920px;
+    width: 1000px;
+    text-align: center;
   }
 
   &__card {
-    width: 200px;
-    height: 200px;
-    border: 1px solid red;
-    display: inline-block;
-    margin: 10px;
-    text-align: center;
-    background-color: red;
-
-  }
-
-  &__turnOverCard {
-    width: 200px;
-    height: 200px;
-    border: 1px solid red;
+    width: $card-width;
+    height: $card-height;
+    border: 2px solid black;
     display: inline-block;
     margin: 10px;
     text-align: center;
     background-color: white;
+    border-radius: $card-border-radius;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+  }
+
+  &__turn-over-card-wrapper {
+    width: $card-width;
+    height: $card-height;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: $card-border-radius;
+    display: inline-block;
+    margin: 10px;
+    overflow: hidden;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__turn-over-card {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
   }
 }

@@ -1,0 +1,19 @@
+.recipes-list {
+  text-align: center;
+  margin: 0 auto;
+  width: 1000px;
+  padding: $common-padding*2 0;
+
+
+  &__title {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-right: $common-padding;
+    cursor: pointer;
+  }
+
+  &__counter {
+    display: inline-block;
+    font-size: 30px;
+  }
+}

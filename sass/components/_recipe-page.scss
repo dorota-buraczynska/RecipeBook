@@ -1,6 +1,21 @@
 .recipe-page {
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  position: relative;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.65);;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  text-align: center;
+
+  &__recipe {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__header-img {
+    width: 400px;
+  }
 
 }

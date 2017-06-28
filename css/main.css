@@ -6,7 +6,10 @@
 .start-page {
   height: 100vh;
   width: 100%;
-  position: relative; }
+  position: relative;
+  background-image: url("../images/bg.jpeg");
+  background-size: cover;
+  background-position: center; }
   .start-page__main-menu {
     position: relative;
     height: 100%; }
@@ -23,33 +26,71 @@
     cursor: pointer; }
 
 .recipe-page {
-  height: 100vh;
+  height: 100%;
   width: 100%;
-  position: relative; }
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.65);
+  top: 0;
+  left: 0;
+  z-index: 1;
+  text-align: center; }
+  .recipe-page__recipe {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+  .recipe-page__header-img {
+    width: 400px; }
 
 .game {
-  height: 100vh;
   width: 100%;
-  position: relative; }
+  position: relative;
+  background-image: url("../images/dinner.jpeg");
+  background-size: cover; }
   .game__board {
     position: relative;
     top: 50%;
     left: 0;
     margin: 0 auto;
-    width: 920px; }
+    width: 1000px;
+    text-align: center; }
   .game__card {
-    width: 200px;
+    width: 280px;
     height: 200px;
-    border: 1px solid red;
+    border: 2px solid black;
     display: inline-block;
     margin: 10px;
     text-align: center;
-    background-color: red; }
-  .game__turnOverCard {
-    width: 200px;
+    background-color: white;
+    border-radius: 5%; }
+    .game__card:last-child {
+      margin-right: 0; }
+  .game__turn-over-card-wrapper {
+    width: 280px;
     height: 200px;
-    border: 1px solid red;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5%;
     display: inline-block;
     margin: 10px;
-    text-align: center;
-    background-color: white; }
+    overflow: hidden; }
+    .game__turn-over-card-wrapper:last-child {
+      margin-right: 0; }
+  .game__turn-over-card {
+    width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }
+
+.recipes-list {
+  text-align: center;
+  margin: 0 auto;
+  width: 1000px;
+  padding: 40px 0; }
+  .recipes-list__title {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-right: 20px;
+    cursor: pointer; }
+  .recipes-list__counter {
+    display: inline-block;
+    font-size: 30px; }
