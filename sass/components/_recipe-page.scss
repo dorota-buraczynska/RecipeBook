@@ -67,7 +67,7 @@
     }
 
     &:hover {
-      border: 2px solid black;
+      box-shadow: 0 0 0 2px black;
       background-color: white;
       color: black;
     }
@@ -75,7 +75,7 @@
 
   &__header-img {
     width: 400px;
-    border: 3px solid white;
+    box-shadow: 0 2px 13px grey;
   }
 
 }
