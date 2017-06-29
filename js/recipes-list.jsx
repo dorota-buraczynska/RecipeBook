@@ -5,8 +5,10 @@ class Recipes extends React.Component {
         if (typeof this.props.showRecipe === 'function') {
             this.props.showRecipe(event.target);
         }
+        if (typeof this.props.hideContent === 'function') {
+            this.props.hideContent(event.target);
+        }
     };
-
 
     render() {
         if (this.props.recipesList.length === 0) {
@@ -20,20 +22,11 @@ class Recipes extends React.Component {
         }
     }
 }
-//
-// class Category extends React.Component {
-//     render() {
-//         return <div>
-//             <h2>{this.props.recipeCategory}</h2>
-//         </div>
-//     }
-// }
 
 class Content extends React.Component {
     render() {
         return <div style={{display: this.props.display}}>
-            {/*<Category recipesList={this.props.recipesList} recipeCategoty={this.props.recipeCategory}/>*/}
-            <Recipes recipesList={this.props.recipesList} showRecipe={this.props.showRecipe}/>
+            <Recipes recipesList={this.props.recipesList} showRecipe={this.props.showRecipe} hideContent={this.props.hideContent}/>
         </div>
     }
 }
@@ -65,13 +58,19 @@ class RecipesList extends React.Component {
         }
     };
 
+    hideContent = () => {
+        this.setState({
+            contentDisplay: 'none'
+        })
+    };
+
     render() {
         return <div className="recipes-list">
             <div className="recipes-list__wrapper" onClick={this.showContent}>
                 <h1 className="recipes-list__title">recipes list</h1>
                 <Counter numberOfRecipes={this.props.numberOfRecipes}/>
             </div>
-            <Content display={this.state.contentDisplay} recipesList={this.props.recipesList} recipeCategory={this.props.recipeCategory} showRecipe={this.props.showRecipe}/>
+            <Content display={this.state.contentDisplay} recipesList={this.props.recipesList} recipeCategory={this.props.recipeCategory} showRecipe={this.props.showRecipe} hideContent={this.hideContent}/>
         </div>
     }
 }
