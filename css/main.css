@@ -34,6 +34,10 @@
       margin-bottom: 0; }
     .start-page__play-button:hover {
       background-color: #e0f3de; }
+    .start-page__play-button--back-to-start {
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 40px; }
 
 .recipe-page {
   height: 100%;
@@ -93,7 +97,8 @@
   position: relative;
   background-size: cover;
   overflow: hidden;
-  padding: 60px 0; }
+  padding: 60px 0;
+  height: 100%; }
   .game--dinner {
     background-image: url("../images/dinner.jpeg"); }
   .game--breakfast {

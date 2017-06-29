@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class PlayButton extends React.Component {
+class MainButton extends React.Component {
     handleOnClick = (event) => {
         if (typeof this.props.showDinnerGamePage === 'function') {
             this.props.showDinnerGamePage(event.target);
@@ -12,19 +12,22 @@ class PlayButton extends React.Component {
         if (typeof this.props.showDessertGamePage === 'function') {
             this.props.showDessertGamePage(event.target);
         }
+        if (typeof this.props.backToStart === 'function') {
+            this.props.backToStart(event.target);
+        }
     };
 
     render() {
-        return <button onClick={this.handleOnClick} className="start-page__play-button">{this.props.category}</button>
+        return <button onClick={this.handleOnClick} className="start-page__play-button start-page__play-button--back-to-start">{this.props.title}</button>
     }
 }
 
 class MainMenu extends React.Component {
     render() {
         return <div className="start-page__main-menu">
-            <PlayButton category="breakfast" showBreakfastGamePage={this.props.showBreakfastGamePage}/>
-            <PlayButton category="dinner" showDinnerGamePage={this.props.showDinnerGamePage}/>
-            <PlayButton category="dessert" showDessertGamePage={this.props.showDessertGamePage}/>
+            <MainButton title="breakfast" showBreakfastGamePage={this.props.showBreakfastGamePage}/>
+            <MainButton title="dinner" showDinnerGamePage={this.props.showDinnerGamePage}/>
+            <MainButton title="dessert" showDessertGamePage={this.props.showDessertGamePage}/>
         </div>
     }
 }
@@ -39,3 +42,4 @@ class StartPage extends React.Component {
 }
 
 export {StartPage}
+export {MainButton}

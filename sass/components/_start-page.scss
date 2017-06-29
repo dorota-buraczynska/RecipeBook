@@ -17,7 +17,6 @@
   &__play-button {
     display: block;
     position: relative;
-
     margin-bottom: $common-padding*2;
     text-transform: uppercase;
     width: $button-width;
@@ -37,6 +36,12 @@
 
     &:hover {
       background-color: $hover-bg-color;
+    }
+
+    &--back-to-start {
+      left: 50%;
+      transform: translateX(-50%);
+      margin-top: 40px;
     }
   }
 }

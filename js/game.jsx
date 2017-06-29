@@ -1,6 +1,7 @@
 import React from 'react';
 import {RecipePage} from './reciepe-page.jsx';
 import {RecipesList} from './recipes-list.jsx';
+import {MainButton} from './start-page.jsx'
 
 class Card extends React.Component {
 
@@ -142,7 +143,6 @@ class Board extends React.Component {
         })
     };
 
-
     render() {
         let cards = this.state.doubleCards.map((card, index) => {
             return <Card key={index} turnOverCard={card => this.turnOverCard(card, index)} img={card.img} bg={card.bg} isTurnOver={card.isTurnOver} pointerEvents={this.state.pointerEvents}/>
@@ -152,6 +152,7 @@ class Board extends React.Component {
             <RecipesList showRecipe={this.showRecipe} numberOfRecipes={this.state.numberOfRecipes} recipesList={this.state.recipesList} recipeCategory={this.state.recipeCategory}/>
             <RecipePage hideRecipePage={this.hideRecipePage} saveRecipe={this.saveRecipe} recipeIsDisplay={this.state.recipeIsDisplay} title={this.state.recipeTitle} ingredients={this.state.recipeIngredients} realization={this.state.recipeRealization} img={this.state.recipeImg} isVisible={this.state.recipePageDisplay}/>
             <div className="game__board">{cards}</div>
+            <MainButton title="back to start" backToStart={this.props.backToStart}/>
         </div>
     }
 }
@@ -159,7 +160,7 @@ class Board extends React.Component {
 class Game extends React.Component {
     render() {
         return <div>
-            <Board cards={this.props.cards}/>
+            <Board cards={this.props.cards} backToStart={this.props.backToStart}/>
         </div>
     }
 }
