@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import {StartPage} from './start-page.jsx';
 import {Game} from './game.jsx';
 import cardsDinner from './cards-dinner';
-import cardsBreakfast from './cards-breakfast'
-import cardsDesserts from './cards-desserts'
+import cardsBreakfast from './cards-breakfast';
+import cardsDesserts from './cards-desserts';
 
 
 class App extends React.Component {
@@ -50,6 +50,7 @@ class App extends React.Component {
     };
 
     render() {
+
         if (this.state.startPageIsVisible) {
             return <StartPage isVisible={this.state.startPageIsVisible} showDinnerGamePage={this.showDinnerGamePage} showBreakfastGamePage={this.showBreakfastGamePage} showDessertGamePage={this.showDessertGamePage}/>
 

@@ -4,7 +4,7 @@
   background-size: cover;
   overflow: hidden;
   padding: $common-padding*3 0;
-  height: 100%;
+  min-height: 100%;
 
   &--dinner {
     background-image: url("../images/dinner.jpeg");

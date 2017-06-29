@@ -4,6 +4,9 @@
   box-sizing: border-box;
   font-family: "Source Code Pro", monospace; }
 
+html, body, #app {
+  height: 100%; }
+
 .start-page {
   height: 100vh;
   width: 100%;
@@ -14,9 +17,9 @@
   opacity: 0.6; }
   .start-page__main-menu {
     position: absolute;
-    top: 30%;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%); }
+    transform: translate(-50%, -50%); }
   .start-page__play-button {
     display: block;
     position: relative;
@@ -75,7 +78,6 @@
     transform: translateY(-50%);
     padding: 40px;
     background-color: white;
-    border-radius: 5%;
     border: 2px solid white; }
   .recipe-page__button {
     margin-top: 20px;
@@ -102,7 +104,7 @@
   background-size: cover;
   overflow: hidden;
   padding: 60px 0;
-  height: 100%; }
+  min-height: 100%; }
   .game--dinner {
     background-image: url("../images/dinner.jpeg"); }
   .game--breakfast {

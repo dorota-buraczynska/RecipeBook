@@ -41,7 +41,9 @@ class RecipeText extends React.Component {
         return <div className="recipe-page__text">
             <p className="recipe-page__title">ingredients</p>
             <ul className="recipe-page__ingredients">
-                {this.props.ingredients}
+                {this.props.ingredients.map((ingredient, index) => {
+                    return <li key={index}>{ingredient}</li>
+                })}
             </ul>
             <p className="recipe-page__realization">{this.props.realization}</p>
         </div>

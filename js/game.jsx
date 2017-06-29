@@ -26,11 +26,6 @@ class Board extends React.Component {
     constructor(props) {
         super(props);
 
-        let cardsStates = [];
-        for (let i = 0; i < this.props.cards.length; i++) {
-            cardsStates.push(false, false);
-        }
-
         let shuffle = a => {
             for (let i = a.length; i; i--) {
                 let j = Math.floor(Math.random() * i);
@@ -47,13 +42,12 @@ class Board extends React.Component {
         doubleCards = shuffle(doubleCards);
 
         this.state = {
-            cardsTurnOverStates: cardsStates,
             doubleCards: doubleCards,
             statesArray: [],
             recipeTitle: '',
             recipeImg: '',
             recipeIndex: '',
-            recipeIngredients: '',
+            recipeIngredients: [],
             recipeRealization: '',
             recipePageDisplay: 'none',
             pointerEvents: 'auto',
@@ -150,7 +144,7 @@ class Board extends React.Component {
         });
 
         return <div className="game__board-wrapper">
-            <RecipesList showRecipe={this.showRecipe} numberOfRecipes={this.state.numberOfRecipes} recipesList={this.state.recipesList} recipeCategory={this.state.recipeCategory}/>
+            <RecipesList showRecipe={this.showRecipe} numberOfRecipes={this.state.numberOfRecipes} recipesList={this.state.recipesList}/>
             <RecipePage hideRecipePage={this.hideRecipePage} saveRecipe={this.saveRecipe} recipeIsDisplay={this.state.recipeIsDisplay} title={this.state.recipeTitle} ingredients={this.state.recipeIngredients} realization={this.state.recipeRealization} img={this.state.recipeImg} isVisible={this.state.recipePageDisplay}/>
             <div className="game__board">{cards}</div>
             <MainButton title="back to start" backToStart={this.props.backToStart}/>
@@ -161,7 +155,7 @@ class Board extends React.Component {
 class Game extends React.Component {
     render() {
         return <div>
-            <Board cards={this.props.cards} backToStart={this.props.backToStart}/>
+            <Board cards={this.props.cards} backToStart={this.props.backToStart} />
         </div>
     }
 }
