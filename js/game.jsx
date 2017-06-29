@@ -65,7 +65,8 @@ class Board extends React.Component {
 
     hideRecipePage = () => {
         this.setState({
-            recipePageDisplay: 'none'
+            recipePageDisplay: 'none',
+            recipeIsDisplay: false
         })
     };
 
