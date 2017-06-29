@@ -13,7 +13,7 @@ class Card extends React.Component {
 
     render() {
         if (this.props.isTurnOver === false) {
-            return <div style={{pointerEvents: this.props.pointerEvents}} className="game__card" onClick={this.handleOnClick}/>
+            return <div style={{pointerEvents: this.props.pointerEvents, backgroundImage: this.props.bg}} className="game__card" onClick={this.handleOnClick}/>
         } else {
             return <div style={{backgroundImage: this.props.img}} className="game__turn-over-card-wrapper">
                 <img src={this.props.img} style={{pointerEvents: this.props.pointerEvents}} className="game__turn-over-card" onClick={this.handleOnClick}/>

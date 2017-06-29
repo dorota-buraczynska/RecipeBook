@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {StartPage} from './start-page.jsx';
 import {Game} from './game.jsx';
-import cards from './cards';
+import cardsDinner from './cards-dinner';
 import cardsBreakfast from './cards-breakfast'
 import cardsDesserts from './cards-desserts'
 
@@ -56,7 +56,7 @@ class App extends React.Component {
         } else if (this.state.gameDinnerPageIsVisible) {
             return <div className="game game--dinner">
                 <div className="game__board-bg"></div>
-                <Game cards={cards} backToStart={this.backToStart}/>
+                <Game cards={cardsDinner} backToStart={this.backToStart}/>
             </div>
 
         } else if (this.state.gameBreakfastPageIsVisible) {

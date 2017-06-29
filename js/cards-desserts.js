@@ -1,7 +1,7 @@
 module.exports = [
     {
         id: 0,
-        bg: 'bg',
+        bg: "url(./images/muffin.png)",
         img: 'images/berliner-breakfast-bun-cake-41300.jpeg',
         title: 'bun cake',
         category: 'dessert',
@@ -16,7 +16,7 @@ module.exports = [
     },
     {
         id: 1,
-        bg: 'bg',
+        bg: "url(./images/muffin.png)",
         img: 'images/break-breakfast-corporate-cup-87435.jpeg',
         title: 'croissant',
         category: 'dessert',
@@ -31,7 +31,7 @@ module.exports = [
     },
     {
         id: 2,
-        bg: 'bg',
+        bg: "url(./images/muffin.png)",
         img: 'images/muffin.jpg',
         title: 'nuts muffin',
         category: 'dessert',
@@ -46,7 +46,7 @@ module.exports = [
     },
     {
         id: 3,
-        bg: 'bg',
+        bg: "url(./images/muffin.png)",
         img: 'images/muffins-lemon.jpeg',
         title: 'lemon muffin',
         category: 'dessert',
@@ -61,7 +61,7 @@ module.exports = [
     },
     {
         id: 4,
-        bg: 'bg',
+        bg: "url(./images/muffin.png)",
         img: 'images/cake.jpeg',
         title: 'raspberry cake',
         category: 'breakfast',
@@ -76,7 +76,7 @@ module.exports = [
     },
     {
         id: 5,
-        bg: 'bg',
+        bg: "url(./images/muffin.png)",
         img: 'images/macarons.jpg',
         title: 'macarons',
         category: 'dessert',

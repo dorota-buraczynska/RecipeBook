@@ -1,7 +1,7 @@
 module.exports = [
     {
         id: 0,
-        bg: 'bg',
+        bg: "url(./images/breakfast.png)",
         img: 'images/bread-food-salad-sandwich.jpg',
         title: 'salad sandwich',
         category: 'breakfast',
@@ -16,7 +16,7 @@ module.exports = [
     },
     {
         id: 1,
-        bg: 'bg',
+        bg: "url(./images/breakfast.png)",
         img: 'images/egg-and-sausage.jpeg',
         title: 'eggs and sausages',
         category: 'breakfast',
@@ -31,7 +31,7 @@ module.exports = [
     },
     {
         id: 2,
-        bg: 'bg',
+        bg: "url(./images/breakfast.png)",
         img: 'images/sandwich.jpeg',
         title: 'ham sandwitch',
         category: 'breakfast',
@@ -46,7 +46,7 @@ module.exports = [
     },
     {
         id: 3,
-        bg: 'bg',
+        bg: "url(./images/breakfast.png)",
         img: 'images/muesli.jpeg',
         title: 'muesli',
         category: 'breakfast',
@@ -61,7 +61,7 @@ module.exports = [
     },
     {
         id: 4,
-        bg: 'bg',
+        bg: "url(./images/breakfast.png)",
         img: 'images/pancakes.jpg',
         title: 'pancakes',
         category: 'breakfast',
@@ -76,7 +76,7 @@ module.exports = [
     },
     {
         id: 5,
-        bg: 'bg',
+        bg: "url(./images/breakfast.png)",
         img: 'images/toast.jpeg',
         title: 'toast',
         category: 'breakfast',

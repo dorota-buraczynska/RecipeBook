@@ -121,12 +121,14 @@
   .game__card {
     width: 280px;
     height: 200px;
-    border: 2px solid white;
     display: inline-block;
     margin: 10px;
     text-align: center;
-    background-color: #f6e0e0;
-    cursor: pointer; }
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaTpWgwhO02a49bU8vvLlHZdE8qX7aS8KP2x2ICPZISBdE-znojw");
+    cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white; }
     .game__card:last-child {
       margin-right: 0; }
   .game__turn-over-card-wrapper {

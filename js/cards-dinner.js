@@ -1,7 +1,7 @@
 module.exports = [
     {
         id: 0,
-        bg: 'bg',
+        bg: "url(./images/dinner.png)",
         img: 'images/burger.jpeg',
         title: 'big burger',
         category: 'dinner',
@@ -16,7 +16,7 @@ module.exports = [
     },
     {
         id: 1,
-        bg: 'bg',
+        bg: "url(./images/dinner.png)",
         img: 'images/casserole.jpeg',
         title: 'chicken casserole',
         category: 'dinner',
@@ -31,7 +31,7 @@ module.exports = [
     },
     {
         id: 2,
-        bg: 'bg',
+        bg: "url(./images/dinner.png)",
         img: 'images/food-dinner-lemon-rice.jpg',
         title: 'lemmon rice',
         category: 'dinner',
@@ -46,7 +46,7 @@ module.exports = [
     },
     {
         id: 3,
-        bg: 'bg',
+        bg: "url(./images/dinner.png)",
         img: 'images/food-dinner-pasta-spaghetti-8500.jpg',
         title: 'spaghetti',
         category: 'dinner',
@@ -61,7 +61,7 @@ module.exports = [
     },
     {
         id: 4,
-        bg: 'bg',
+        bg: "url(./images/dinner.png)",
         img: 'images/pasta-with-mashrooms.jpeg',
         title: 'pasta with mashrooms',
         category: 'dinner',
@@ -76,7 +76,7 @@ module.exports = [
     },
     {
         id: 5,
-        bg: 'bg',
+        bg: "url(./images/dinner.png)",
         img: 'images/soup.jpeg',
         title: 'tomato soup',
         category: 'dinner',

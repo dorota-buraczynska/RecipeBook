@@ -38,12 +38,15 @@
   &__card {
     width: $card-width;
     height: $card-height;
-    border: 2px solid white;
     display: inline-block;
     margin: 10px;
     text-align: center;
-    background-color: $background-color;
+    //background-color: $background-color;'
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaTpWgwhO02a49bU8vvLlHZdE8qX7aS8KP2x2ICPZISBdE-znojw");
     cursor: pointer;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: white;
 
     &:last-child {
       margin-right: 0;
