@@ -9,6 +9,7 @@
     padding: $common-padding 0;
     background-color: white;
     cursor: pointer;
+    border: 2px solid $background-color;
 
     &:hover {
       background-color: $hover-bg-color;

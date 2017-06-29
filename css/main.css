@@ -25,7 +25,7 @@
     width: 300px;
     padding: 20px;
     background-color: white;
-    border: none;
+    border: 2px solid #f6e0e0;
     cursor: pointer;
     outline: none;
     font-size: 20px;
@@ -63,14 +63,15 @@
   .recipe-page__realization {
     margin: 20px 0; }
   .recipe-page__recipe {
-    width: 700px;
+    width: 600px;
     margin: 0 auto;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     padding: 40px;
     background-color: #f6e0e0;
-    border-radius: 5%; }
+    border-radius: 5%;
+    border: 2px solid white; }
   .recipe-page__button {
     margin-top: 20px;
     margin-right: 20px;
@@ -84,7 +85,8 @@
     .recipe-page__button:hover {
       background-color: #e0f3de; }
   .recipe-page__header-img {
-    width: 400px; }
+    width: 400px;
+    border: 3px solid white; }
 
 .game {
   width: 100%;
@@ -95,7 +97,7 @@
   .game--dinner {
     background-image: url("../images/dinner.jpeg"); }
   .game--breakfast {
-    background-image: url("../images/breakfast.jpeg"); }
+    background-image: url("../images/breakfast1.jpeg"); }
   .game--dessert {
     background-image: url("../images/desserts.jpeg"); }
   .game__board {
@@ -105,15 +107,20 @@
     margin: 60px auto 0 auto;
     max-width: 1300px;
     text-align: center; }
+  .game__board-bg {
+    background-color: rgba(255, 255, 255, 0.52);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; }
   .game__card {
     width: 280px;
     height: 200px;
-    border: 2px solid black;
+    border: 2px solid white;
     display: inline-block;
     margin: 10px;
     text-align: center;
-    background-color: rgba(251, 241, 229, 0.81);
-    border-radius: 5%;
+    background-color: #f6e0e0;
     cursor: pointer; }
     .game__card:last-child {
       margin-right: 0; }
@@ -122,15 +129,15 @@
     height: 200px;
     display: inline-block;
     margin: 10px;
-    overflow: hidden; }
+    overflow: hidden;
+    background-color: white; }
     .game__turn-over-card-wrapper:last-child {
       margin-right: 0; }
   .game__turn-over-card {
-    width: 100%;
+    width: 80%;
     position: relative;
     top: 50%;
-    transform: translateY(-50%);
-    border-radius: 5%; }
+    transform: translateY(-50%); }
 
 .recipes-list {
   text-align: center;
@@ -141,7 +148,8 @@
     width: 100%;
     padding: 20px 0;
     background-color: white;
-    cursor: pointer; }
+    cursor: pointer;
+    border: 2px solid #f6e0e0; }
     .recipes-list__wrapper:hover {
       background-color: #e0f3de; }
   .recipes-list__title {

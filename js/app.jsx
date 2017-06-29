@@ -46,15 +46,18 @@ class App extends React.Component {
 
         } else if (this.state.gameDinnerPageIsVisible) {
             return <div className="game game--dinner">
-                <Game cards={cards}/>
+                <div className="game__board-bg"></div>
+                <Game cards={cards} />
             </div>
 
         } else if (this.state.gameBreakfastPageIsVisible) {
             return <div className="game game--breakfast">
+                <div className="game__board-bg"></div>
                 <Game cards={cardsBreakfast} />
             </div>
         }else if (this.state.gameDessertPageIsVisible) {
             return <div className="game game--dessert">
+                <div className="game__board-bg"></div>
                 <Game cards={cardsDesserts} />
             </div>
         }
