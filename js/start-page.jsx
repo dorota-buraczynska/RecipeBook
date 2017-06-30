@@ -35,8 +35,10 @@ class MainMenu extends React.Component {
 
 class StartPage extends React.Component {
     render() {
+        let preloadImg = new Image();
+        preloadImg.src = './images/bg.jpeg';
         return <div>
-            <div className="start-page"></div>
+            <div className="start-page" style={{backgroundImage: `'url:(${preloadImg.src})'`}}></div>
             <MainMenu showDinnerGamePage={this.props.showDinnerGamePage} showBreakfastGamePage={this.props.showBreakfastGamePage} showDessertGamePage={this.props.showDessertGamePage}/>
         </div>
     }

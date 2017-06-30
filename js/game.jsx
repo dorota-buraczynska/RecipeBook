@@ -12,11 +12,13 @@ class Card extends React.Component {
     };
 
     render() {
+        let preloadImg = new Image();
+        preloadImg.src = this.props.img;
         if (this.props.isTurnOver === false) {
             return <div style={{pointerEvents: this.props.pointerEvents, backgroundImage: this.props.bg}} className="game__card" onClick={this.handleOnClick}/>
         } else {
             return <div className="game__turn-over-card-wrapper">
-                <img src={this.props.img} style={{pointerEvents: this.props.pointerEvents}} className="game__turn-over-card" onClick={this.handleOnClick}/>
+                <img src={preloadImg.src} style={{pointerEvents: this.props.pointerEvents}} className="game__turn-over-card" onClick={this.handleOnClick}/>
             </div>
         }
     }
