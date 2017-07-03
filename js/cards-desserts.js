@@ -64,7 +64,7 @@ module.exports = [
         bg: "url(./images/muffin.png)",
         img: 'images/cake.jpeg',
         title: 'raspberry cake',
-        category: 'breakfast',
+        category: 'dessert',
         ingredients: [
             'Lorem ipsum dolor sit amet.',
             'Lorem ipsum dolor sit amet.',

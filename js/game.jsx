@@ -52,6 +52,7 @@ class Board extends React.Component {
             recipeTitle: '',
             recipeImg: '',
             recipeIndex: '',
+            recipeId: '',
             recipeIngredients: [],
             recipeRealization: '',
             recipePageDisplay: 'none',
@@ -71,7 +72,7 @@ class Board extends React.Component {
 
     chosenRecipes = () => {
         if (typeof this.props.chosenRecipes === 'function') {
-            this.props.chosenRecipes(this.state.recipeCategory);
+            this.props.chosenRecipes(this.state.recipeCategory, this.state.recipeId);
         }
     };
 
@@ -120,11 +121,11 @@ class Board extends React.Component {
                         recipeCategory: recipeCategory,
                         recipeTitle: this.state.doubleCards[indexOne].title,
                         recipeImg: this.state.doubleCards[indexOne].img,
+                        recipeId: idFirstCard,
                         recipeIndex: indexOne,
                         recipeIngredients: this.state.doubleCards[indexOne].ingredients,
                         recipeRealization: this.state.doubleCards[indexOne].realization
                     },);
-                    this.chosenRecipes(recipeCategory);
                 }, 1500);
             }
         }
@@ -138,6 +139,7 @@ class Board extends React.Component {
             recipesList: tempArray,
             recipePageDisplay: 'none'
         });
+        this.chosenRecipes(this.state.recipeCategory, this.state.recipeId);
     };
 
     showRecipe = (event) => {
