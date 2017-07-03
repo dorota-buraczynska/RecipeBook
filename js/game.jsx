@@ -14,6 +14,8 @@ class Card extends React.Component {
     render() {
         let preloadImg = new Image();
         preloadImg.src = this.props.img;
+        let preloadImgBg = new Image();
+        preloadImgBg.src = './images/dinner.jpeg';
         if (this.props.isTurnOver === false) {
             return <div style={{pointerEvents: this.props.pointerEvents, backgroundImage: this.props.bg}} className="game__card" onClick={this.handleOnClick}/>
         } else {
@@ -46,6 +48,7 @@ class Board extends React.Component {
         this.state = {
             doubleCards: doubleCards,
             statesArray: [],
+            recipeCategory: '',
             recipeTitle: '',
             recipeImg: '',
             recipeIndex: '',
@@ -64,6 +67,12 @@ class Board extends React.Component {
             recipePageDisplay: 'none',
             recipeIsDisplay: false
         })
+    };
+
+    chosenRecipes = () => {
+        if (typeof this.props.chosenRecipes === 'function') {
+            this.props.chosenRecipes(this.state.recipeCategory);
+        }
     };
 
     turnOverCard = (card, index) => {
@@ -103,17 +112,20 @@ class Board extends React.Component {
                 setTimeout(() => {
                     this.state.doubleCards[indexOne].isTurnOver = true;
                     this.state.doubleCards[indexTwo].isTurnOver = true;
+                    let recipeCategory = this.state.doubleCards[indexOne].category;
                     this.setState({
                         statesArray: [],
                         recipePageDisplay: 'block',
                         pointerEvents: 'auto',
+                        recipeCategory: recipeCategory,
                         recipeTitle: this.state.doubleCards[indexOne].title,
                         recipeImg: this.state.doubleCards[indexOne].img,
                         recipeIndex: indexOne,
                         recipeIngredients: this.state.doubleCards[indexOne].ingredients,
-                        recipeRealization: this.state.doubleCards[indexOne].realization,
-                    });
-                }, 1500)
+                        recipeRealization: this.state.doubleCards[indexOne].realization
+                    },);
+                    this.chosenRecipes(recipeCategory);
+                }, 1500);
             }
         }
     };
@@ -157,7 +169,7 @@ class Board extends React.Component {
 class Game extends React.Component {
     render() {
         return <div>
-            <Board cards={this.props.cards} backToStart={this.props.backToStart} />
+            <Board cards={this.props.cards} backToStart={this.props.backToStart} chosenRecipes={this.props.chosenRecipes}/>
         </div>
     }
 }

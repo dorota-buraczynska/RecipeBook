@@ -28,7 +28,7 @@ class MainMenu extends React.Component {
             <MainButton title="breakfast" showBreakfastGamePage={this.props.showBreakfastGamePage}/>
             <MainButton title="dinner" showDinnerGamePage={this.props.showDinnerGamePage}/>
             <MainButton title="dessert" showDessertGamePage={this.props.showDessertGamePage}/>
-            <MainButton title="check your recipes"/>
+            {/*<MainButton title="check your recipes"/>*/}
         </div>
     }
 }

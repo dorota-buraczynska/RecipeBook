@@ -49,6 +49,10 @@ class App extends React.Component {
       })
     };
 
+    chosenRecipes = (category) => {
+        console.log(category)
+    };
+
     render() {
         let preloadImgDinner = new Image();
         preloadImgDinner.src = './images/dinner.jpeg';
@@ -63,18 +67,18 @@ class App extends React.Component {
         } else if (this.state.gameDinnerPageIsVisible) {
             return <div className="game game--dinner" style={{backgroundImage: `'url:(${preloadImgDinner.src})'`}}>
                 <div className="game__board-bg"></div>
-                <Game cards={cardsDinner} backToStart={this.backToStart}/>
+                <Game cards={cardsDinner} backToStart={this.backToStart} chosenRecipes={this.chosenRecipes}/>
             </div>
 
         } else if (this.state.gameBreakfastPageIsVisible) {
             return <div className="game game--breakfast" style={{backgroundImage: `'url:(${preloadImgBreakfast.src})'`}}>
                 <div className="game__board-bg"></div>
-                <Game cards={cardsBreakfast} backToStart={this.backToStart}/>
+                <Game cards={cardsBreakfast} backToStart={this.backToStart} />
             </div>
         } else if (this.state.gameDessertPageIsVisible) {
             return <div className="game game--dessert" style={{backgroundImage: `'url:(${preloadImgDessert.src})'`}}>
                 <div className="game__board-bg"></div>
-                <Game cards={cardsDesserts} backToStart={this.backToStart}/>
+                <Game cards={cardsDesserts} backToStart={this.backToStart} />
             </div>
         }
     }
