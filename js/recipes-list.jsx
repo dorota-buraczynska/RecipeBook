@@ -14,6 +14,7 @@ class Recipes extends React.Component {
         if (this.props.recipesList.length === 0) {
             return <p className="recipes-list__content">you don't have any recipes</p>
         } else {
+            console.log(this.props.recipesList)
             return <ul className="recipes-list__content">
                 {this.props.recipesList.map((recipe) => {
                     return <li onClick={this.showRecipe} className="recipes-list__recipe" data-index={recipe.index} key={recipe.title}>{recipe.title}</li>

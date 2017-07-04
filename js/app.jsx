@@ -15,7 +15,6 @@ class App extends React.Component {
             gameDinnerPageIsVisible: false,
             gameBreakfastPageIsVisible: false,
             gameDessertPageIsVisible: false,
-            gameRecipePageIsVisible: false,
             savedRecipes: [],
             recipesListDinner: [],
             recipesListBreakfast: [],
@@ -49,8 +48,7 @@ class App extends React.Component {
             startPageIsVisible: true,
             gameDinnerPageIsVisible: false,
             gameBreakfastPageIsVisible: false,
-            gameDessertPageIsVisible: false,
-            gameRecipePageIsVisible: false
+            gameDessertPageIsVisible: false
         })
     };
 
