@@ -6,7 +6,6 @@ import cardsDinner from './cards-dinner';
 import cardsBreakfast from './cards-breakfast';
 import cardsDesserts from './cards-desserts';
 
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -16,18 +15,22 @@ class App extends React.Component {
             gameDinnerPageIsVisible: false,
             gameBreakfastPageIsVisible: false,
             gameDessertPageIsVisible: false,
-            savedRecipes: []
+            gameRecipePageIsVisible: false,
+            savedRecipes: [],
+            recipesListDinner: [],
+            recipesListBreakfast: [],
+            recipesListDessert: []
         }
     }
 
-    showDinnerGamePage = (event) => {
+    showDinnerGamePage = () => {
         this.setState({
             startPageIsVisible: false,
             gameDinnerPageIsVisible: true
         })
     };
 
-    showBreakfastGamePage = (event) => {
+    showBreakfastGamePage = () => {
         this.setState({
             startPageIsVisible: false,
             gameBreakfastPageIsVisible: true
@@ -42,24 +45,41 @@ class App extends React.Component {
     };
 
     backToStart = () => {
-      this.setState({
-          startPageIsVisible: true,
-          gameDinnerPageIsVisible: false,
-          gameBreakfastPageIsVisible: false,
-          gameDessertPageIsVisible: false
-      })
+        this.setState({
+            startPageIsVisible: true,
+            gameDinnerPageIsVisible: false,
+            gameBreakfastPageIsVisible: false,
+            gameDessertPageIsVisible: false,
+            gameRecipePageIsVisible: false
+        })
     };
 
-    chosenRecipes = (category, id) => {
-        let savedRecipes = this.state.savedRecipes;
-        savedRecipes.push({recipeCategory: category, recipeId: id});
-        this.setState({
-            savedRecipes: savedRecipes
-        });
+    chosenRecipes = (title, index, category) => {
+        let recipesListDinner = this.state.recipesListDinner;
+        let recipesListBreakfast = this.state.recipesListBreakfast;
+        let recipesListDessert = this.state.recipesListDessert;
+        if (category === 'dinner') {
+            recipesListDinner.push({title: title, index: index});
+            this.setState({
+                recipesListDinner: recipesListDinner
+            });
+        }
+        if (category === 'breakfast') {
+            recipesListBreakfast.push({title: title, index: index});
+            this.setState({
+                recipesListBreakfast: recipesListBreakfast
+            });
+        }
+        if (category === 'dessert') {
+            recipesListDessert.push({title: title, index: index});
+            this.setState({
+                recipesListDessert: recipesListDessert
+            });
+        }
+
     };
 
     render() {
-        console.log(this.state.savedRecipes)
         let preloadImgDinner = new Image();
         preloadImgDinner.src = './images/dinner.jpeg';
         let preloadImgBreakfast = new Image();
@@ -68,23 +88,23 @@ class App extends React.Component {
         preloadImgDessert.src = './images/desserts.jpeg';
 
         if (this.state.startPageIsVisible) {
-            return <StartPage isVisible={this.state.startPageIsVisible} showDinnerGamePage={this.showDinnerGamePage} showBreakfastGamePage={this.showBreakfastGamePage} showDessertGamePage={this.showDessertGamePage}/>
+            return <StartPage isVisible={this.state.startPageIsVisible} showDinnerGamePage={this.showDinnerGamePage} showBreakfastGamePage={this.showBreakfastGamePage} showDessertGamePage={this.showDessertGamePage} />
 
         } else if (this.state.gameDinnerPageIsVisible) {
             return <div className="game game--dinner" style={{backgroundImage: `'url:(${preloadImgDinner.src})'`}}>
                 <div className="game__board-bg"></div>
-                <Game cards={cardsDinner} backToStart={this.backToStart} chosenRecipes={this.chosenRecipes} />
+                <Game cards={cardsDinner} backToStart={this.backToStart} chosenRecipes={this.chosenRecipes} recipesList={this.state.recipesListDinner}/>
             </div>
 
         } else if (this.state.gameBreakfastPageIsVisible) {
             return <div className="game game--breakfast" style={{backgroundImage: `'url:(${preloadImgBreakfast.src})'`}}>
                 <div className="game__board-bg"></div>
-                <Game cards={cardsBreakfast} backToStart={this.backToStart} chosenRecipes={this.chosenRecipes} />
+                <Game cards={cardsBreakfast} backToStart={this.backToStart} chosenRecipes={this.chosenRecipes} recipesList={this.state.recipesListBreakfast}/>
             </div>
         } else if (this.state.gameDessertPageIsVisible) {
             return <div className="game game--dessert" style={{backgroundImage: `'url:(${preloadImgDessert.src})'`}}>
                 <div className="game__board-bg"></div>
-                <Game cards={cardsDesserts} backToStart={this.backToStart} chosenRecipes={this.chosenRecipes} />
+                <Game cards={cardsDesserts} backToStart={this.backToStart} chosenRecipes={this.chosenRecipes}  recipesList={this.state.recipesListDessert} />
             </div>
         }
     }

@@ -57,8 +57,6 @@ class Board extends React.Component {
             recipeRealization: '',
             recipePageDisplay: 'none',
             pointerEvents: 'auto',
-            numberOfRecipes: 0,
-            recipesList: [],
             recipeIsDisplay: false
         };
     }
@@ -72,7 +70,7 @@ class Board extends React.Component {
 
     chosenRecipes = () => {
         if (typeof this.props.chosenRecipes === 'function') {
-            this.props.chosenRecipes(this.state.recipeCategory, this.state.recipeId);
+            this.props.chosenRecipes(this.state.recipeTitle, this.state.recipeIndex, this.state.recipeCategory);
         }
     };
 
@@ -132,14 +130,10 @@ class Board extends React.Component {
     };
 
     saveRecipe = () => {
-        let tempArray = this.state.recipesList;
-        tempArray.push({title: this.state.recipeTitle, index: this.state.recipeIndex});
         this.setState({
-            numberOfRecipes: this.state.numberOfRecipes + 1,
-            recipesList: tempArray,
             recipePageDisplay: 'none'
         });
-        this.chosenRecipes(this.state.recipeCategory, this.state.recipeId);
+        this.chosenRecipes(this.state.recipeTitle, this.state.recipeIndex, this.state.recipeCategory);
     };
 
     showRecipe = (event) => {
@@ -160,7 +154,7 @@ class Board extends React.Component {
         });
 
         return <div className="game__board-wrapper">
-            <RecipesList showRecipe={this.showRecipe} numberOfRecipes={this.state.numberOfRecipes} recipesList={this.state.recipesList}/>
+            <RecipesList showRecipe={this.showRecipe} numberOfRecipes={this.state.numberOfRecipes} recipesList={this.props.recipesList}/>
             <RecipePage hideRecipePage={this.hideRecipePage} saveRecipe={this.saveRecipe} recipeIsDisplay={this.state.recipeIsDisplay} title={this.state.recipeTitle} ingredients={this.state.recipeIngredients} realization={this.state.recipeRealization} img={this.state.recipeImg} isVisible={this.state.recipePageDisplay}/>
             <div className="game__board">{cards}</div>
             <MainButton title="back to start" backToStart={this.props.backToStart}/>
@@ -171,7 +165,7 @@ class Board extends React.Component {
 class Game extends React.Component {
     render() {
         return <div>
-            <Board cards={this.props.cards} backToStart={this.props.backToStart} chosenRecipes={this.props.chosenRecipes}/>
+            <Board cards={this.props.cards} backToStart={this.props.backToStart} chosenRecipes={this.props.chosenRecipes} recipesList={this.props.recipesList}/>
         </div>
     }
 }

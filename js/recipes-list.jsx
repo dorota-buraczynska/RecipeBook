@@ -33,7 +33,7 @@ class Content extends React.Component {
 
 class Counter extends React.Component {
     render() {
-        return <div className="recipes-list__counter">{this.props.numberOfRecipes}</div>
+        return <div className="recipes-list__counter">{this.props.recipesList.length}</div>
     }
 }
 
@@ -68,7 +68,7 @@ class RecipesList extends React.Component {
         return <div className="recipes-list">
             <div className="recipes-list__wrapper" onClick={this.showContent}>
                 <h1 className="recipes-list__title">recipes list</h1>
-                <Counter numberOfRecipes={this.props.numberOfRecipes}/>
+                <Counter numberOfRecipes={this.props.numberOfRecipes} recipesList={this.props.recipesList}/>
             </div>
             <Content display={this.state.contentDisplay} recipesList={this.props.recipesList} recipeCategory={this.props.recipeCategory} showRecipe={this.props.showRecipe} hideContent={this.hideContent}/>
         </div>

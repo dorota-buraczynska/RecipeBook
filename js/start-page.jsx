@@ -1,19 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 class MainButton extends React.Component {
-    handleOnClick = (event) => {
+    handleOnClick = () => {
         if (typeof this.props.showDinnerGamePage === 'function') {
-            this.props.showDinnerGamePage(event.target);
+            this.props.showDinnerGamePage();
         }
         if (typeof this.props.showBreakfastGamePage === 'function') {
-            this.props.showBreakfastGamePage(event.target);
+            this.props.showBreakfastGamePage();
         }
         if (typeof this.props.showDessertGamePage === 'function') {
-            this.props.showDessertGamePage(event.target);
+            this.props.showDessertGamePage();
         }
         if (typeof this.props.backToStart === 'function') {
-            this.props.backToStart(event.target);
+            this.props.backToStart();
         }
     };
 
@@ -28,7 +27,6 @@ class MainMenu extends React.Component {
             <MainButton title="breakfast" showBreakfastGamePage={this.props.showBreakfastGamePage}/>
             <MainButton title="dinner" showDinnerGamePage={this.props.showDinnerGamePage}/>
             <MainButton title="dessert" showDessertGamePage={this.props.showDessertGamePage}/>
-            <MainButton title="check your recipes"/>
         </div>
     }
 }
@@ -39,7 +37,7 @@ class StartPage extends React.Component {
         preloadImg.src = './images/bg.jpeg';
         return <div>
             <div className="start-page" style={{backgroundImage: `'url:(${preloadImg.src})'`}}></div>
-            <MainMenu showDinnerGamePage={this.props.showDinnerGamePage} showBreakfastGamePage={this.props.showBreakfastGamePage} showDessertGamePage={this.props.showDessertGamePage}/>
+            <MainMenu showDinnerGamePage={this.props.showDinnerGamePage} showBreakfastGamePage={this.props.showBreakfastGamePage} showDessertGamePage={this.props.showDessertGamePage} />
         </div>
     }
 }
